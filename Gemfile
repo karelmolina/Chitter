@@ -2,12 +2,15 @@
 source "https://rubygems.org"
 
 gem 'bundler'
+gem 'capybara'
 gem 'sinatra'
 gem 'sinatra-contrib'
 gem 'erubis'
 gem 'rake'
 gem 'dotenv'
 gem 'pg'
+gem 'simplecov'
+gem 'simplecov-console'
 
 group :production do
   gem "puma"

@@ -1,8 +1,11 @@
 require 'rubygems'
 require 'bundler/setup'
 require 'tilt/erubis'
+require 'dotenv'
 require 'date'
 require 'sinatra' unless defined?(Sinatra)
+
+Dotenv.load
 
 configure do
   SiteConfig = OpenStruct.new(

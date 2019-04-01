@@ -15,5 +15,12 @@ h1 {
 }
 </style>
 
-<img src="http://static.buzznet.com/uploads/2013/03/orig-21185018.jpg"></img>
 <h1>The Opening Act Welcomes You.<br>Happy Programming!</h1>
+
+<% if @connect %>
+  TEST ENV
+  <%= @connect[0]["content"] %>
+<% else %>
+  PRODC ENV
+  <%= @connect[0]["content"]%>
+<% end %>
