@@ -10,7 +10,7 @@ Dotenv.load
 configure do
   SiteConfig = OpenStruct.new(
     title: 'Chitter',
-    author: 'KarelMolina',
+    author: 'Chitter KarelMolina',
     url_base: 'http://localhost:4567/'
   )
 

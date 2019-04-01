@@ -1,26 +1,23 @@
-<style>
-img {
-  width: 100%;
-}
+<h1 align="center">Welcome To Chitter!</h1>
 
-h1 {
-  font-family: Helvetica, sans-serif;
-  font-size: 4.5em;
-  color: white;
-  position: absolute;
-  top: 5%;
-  width: 100%;
-  text-align: center;
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-}
-</style>
+<section >
+  <form action="/peep" method="post">
+      <label for="content">What are you doing? </label>
+      <textarea name="content" rows="12" cols="50"></textarea>
+      <br>
+      <input type="submit" value="Peep">
 
-<h1>The Opening Act Welcomes You.<br>Happy Programming!</h1>
+  </form>
+</section>
 
-<% if @connect %>
-  TEST ENV
-  <%= @connect[0]["content"] %>
-<% else %>
-  PRODC ENV
-  <%= @connect[0]["content"]%>
-<% end %>
+<section>
+  <% if @peeps%>
+  <div class="">
+    <% for peep in @peeps%>
+    <div class="">
+      <%= peep.content %>
+    </div>
+    <% end %>
+  </div>
+  <% end %>
+</section>

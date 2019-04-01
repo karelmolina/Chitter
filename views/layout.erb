@@ -1,17 +1,47 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title><%= @title || SiteConfig.title %></title>
-    <link href="/stylesheets/reset.css" rel="stylesheet" type="text/css"></link>
-    <link href="/stylesheets/main.css" rel="stylesheet" type="text/css"></link>
-  </head>
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title><%= @title || SiteConfig.title %></title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="stylesheets/normalize.css">
+  <link rel="stylesheet" href="stylesheets/skeleton.css">
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="/images/favicon.png">
+
+</head>
   <body>
 
     <%= yield %>
 
-    <script src="script.js"></script>
-    <footer>
-      <p>&copy; <%= Date.today.year %> <%= SiteConfig.author %></p>
-    </footer>
+    <script src="/javascript/script.js"></script>
+<footer>
+  <section class="footer u-full-width">
+<div class="container">
+  <div class="row">
+    <div class="twelve columns">
+      <h5>&copy; <%= Date.today.year %> <%= SiteConfig.author %></h5>
+    </div>
+  </div>
+</div>
+</section>
+</footer>
   </body>
 </html>
