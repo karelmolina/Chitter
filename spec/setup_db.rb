@@ -4,4 +4,4 @@ p "Setting up test database.."
 
 conection = PG.connect(dbname: ENV["TEST_DATABASE"])
 
-conection.exec("truncate peeps;")
+conection.exec("TRUNCATE peeps;")

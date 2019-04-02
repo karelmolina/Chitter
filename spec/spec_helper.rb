@@ -10,12 +10,6 @@ require 'simplecov'
 require 'simplecov-console'
 require_relative './setup_db'
 
-ENV['ENVIROMENT'] = 'test'
-# bring in the content of app.rb
-require File.join(File.dirname(__FILE__), '..', 'Chitter.rb')
-#set capybara app
-Capybara.app = Chitter
-
 Dir.glob(File.expand_path('../*.rb', __FILE__)).each do |file|
   require file
 end
@@ -25,18 +19,22 @@ Sinatra::Base.set :run, false
 Sinatra::Base.set :raise_errors, true
 Sinatra::Base.set :logging, false
 
-
-
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
   # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
+  SimpleCov::Formatter::HTMLFormatter
 ])
 SimpleCov.start
 
+ENV['ENVIROMENT'] = 'test'
+# bring in the content of app.rb
+require File.join(File.dirname(__FILE__), '..', 'Chitter.rb')
+#set capybara app
+Capybara.app = Chitter
+
 RSpec.configure do |config|
   config.before(:each) do
-    setup_db = true
+    setup_db
   end
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest

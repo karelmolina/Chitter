@@ -1,1 +1,1 @@
-Alter table peeps add column datetime timestamp DEFAULT CURRENT_TIMESTAMP;
+Alter table peeps add column datetime timestamp DEFAULT date_trunc('minute', now())::timestamp(0);
