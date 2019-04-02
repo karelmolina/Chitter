@@ -205,7 +205,7 @@ button.button-primary,
 input[type="submit"].button-primary,
 input[type="reset"].button-primary,
 input[type="button"].button-primary {
-  color: #FFF;
+  color: #FFFF;
   background-color: #33C3F0;
   border-color: #33C3F0; }
 .button.button-primary:hover,
@@ -218,7 +218,7 @@ button.button-primary:focus,
 input[type="submit"].button-primary:focus,
 input[type="reset"].button-primary:focus,
 input[type="button"].button-primary:focus {
-  color: #FFF;
+  color: #FFFF;
   background-color: #1EAEDB;
   border-color: #1EAEDB; }
 
@@ -392,12 +392,31 @@ hr {
   clear: both; }
 
 /***************CUSTOM CSS*************/
-.footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
+.footer{
+  height: 50px;
+  background-color: #efefef;
   text-align: center;
+}
+.all_width{
+  width: 100%;
+}
+.peep-container{
+  margin-left: 0%;
+  position: relative;
+  min-height: 51px;
+  padding: 9px 12px;
+  border-bottom: 1px solid #e6ecf0;
+}
+.peep{
+  background-color: #f1f1f1;
+  width: 96%;
+  margin: 10px;
+  text-align: justify;
+  line-height: 75px;
+  font-size: 20px;
+}
+.left{
+  margin-left: 15px;
 }
 /***********************************/
 /* Media Queries

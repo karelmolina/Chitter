@@ -1,47 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
 
-  <!-- Basic Page Needs
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <meta charset="utf-8">
-  <title><%= @title || SiteConfig.title %></title>
-  <meta name="description" content="">
-  <meta name="author" content="">
+    <!-- Basic Page Needs –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta charset="utf-8">
+    <title><%= @title || SiteConfig.title %></title>
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-  <!-- Mobile Specific Metas
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Mobile Specific Metas –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- FONT
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+    <!-- FONT –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
 
-  <!-- CSS
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="stylesheet" href="stylesheets/normalize.css">
-  <link rel="stylesheet" href="stylesheets/skeleton.css">
+    <!-- CSS –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link rel="stylesheet" href="stylesheets/normalize.css">
+    <link rel="stylesheet" href="stylesheets/skeleton.css">
 
-  <!-- Favicon
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="icon" type="image/png" href="/images/favicon.png">
+    <!-- Favicon –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link rel="icon" type="image/png" href="/images/favicon.png">
 
-</head>
+  </head>
   <body>
-
-    <%= yield %>
-
-    <script src="/javascript/script.js"></script>
-<footer>
-  <section class="footer u-full-width">
-<div class="container">
-  <div class="row">
-    <div class="twelve columns">
-      <h5>&copy; <%= Date.today.year %> <%= SiteConfig.author %></h5>
+    <div class="columns">
+      <h1 align="center">Welcome To Chitter!</h1>
     </div>
-  </div>
-</div>
-</section>
-</footer>
+    <div class="container">
+    <%= yield %>
+    </div>
   </body>
+  <div class="footer">
+    <footer>
+      <script src="/javascript/script.js"></script>
+      <section class="u-full-width">
+        <div class="container">
+          <div class="row">
+            <div class="twelve columns">
+              <h5>&copy;<%= Date.today.year %><%= SiteConfig.author %></h5>
+            </div>
+          </div>
+        </div>
+      </section>
+    </footer>
+  </div>
+
 </html>

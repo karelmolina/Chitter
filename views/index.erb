@@ -1,23 +1,19 @@
-<h1 align="center">Welcome To Chitter!</h1>
-
-<section >
-  <form action="/peep" method="post">
-      <label for="content">What are you doing? </label>
-      <textarea name="content" rows="12" cols="50"></textarea>
-      <br>
-      <input type="submit" value="Peep">
-
-  </form>
-</section>
-
-<section>
+<div class="column">
+  <section >
+    <form action="/peep" method="post">
+      <div class="">
+        <textarea class="u-full-width" name="content" rows="12" cols="50" placeholder="What are you doing?!!"></textarea>
+      </div>
+      <input class="button-primary u-pull-right" type="submit" value="Peep">
+    </form>
+  </section>
+</div>
+<div class="column peep-container">
   <% if @peeps%>
-  <div class="">
     <% for peep in @peeps%>
-    <div class="">
-      <%= peep.content %>
-    </div>
+      <div class="peep">
+        <p class="left"><%= peep.content %></p>
+      </div>
     <% end %>
-  </div>
   <% end %>
-</section>
+</div>
