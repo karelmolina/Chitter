@@ -6,6 +6,12 @@
 <form action="/register" method="get">
   <input class="button button-primary u-pull-right" type="submit" value="Register">
 </form>
+<% else %>
+<div class="two column" style="margin-left: 0px;">
+  <form class="" action="/session/destroy" method="post">
+    <input type="submit" class="u-pull-left" value="Log Out">
+  </form>
+</div>
 <% end %>
 <div class="">
   <h1 align="center">Welcome To Chitter!</h1>
@@ -18,12 +24,17 @@
           <form action="/peep" method="post">
             <% if @sess %>
               <div class="">
-                <%= flash[:notice]%>
+                <div class="flash">
+                  <%= flash[:notice]%>
+                </div>
                 <textarea class="u-full-width" name="content" rows="12" cols="50" placeholder="What are you doing?!!" maxlength="255"></textarea>
               </div>
               <input class="button-primary u-pull-right" type="submit" value="Peep">
             <% else %>
               <div class="">
+                <div class="flash">
+                  <%= flash[:notice]%>
+                </div>
                 <textarea class="u-full-width" name="content" rows="12" cols="50" placeholder="Register or Login for put a peep" disabled="disabled"></textarea>
               </div>
             <% end %>

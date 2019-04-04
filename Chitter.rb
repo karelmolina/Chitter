@@ -72,4 +72,10 @@ class Chitter < Sinatra::Base
       flash[:login] = 'Username and/or password are incorrect'
     end
   end
+
+  post '/session/destroy' do
+    session.clear
+    flash[:notice] = 'You have Log out'
+    redirect('/')
+  end
 end
