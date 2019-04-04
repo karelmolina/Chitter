@@ -36,6 +36,12 @@ So that only I can post messages on Chitter as me
 I want to log in to Chitte
 ```
 
+```
+As a Maker
+So that I can avoid others posting messages on Chitter as me
+I want to log out of Chitter
+```
+
 ## Testing
 
 All your tests are housed in the `spec` folders.
