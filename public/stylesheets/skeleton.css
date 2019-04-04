@@ -415,8 +415,18 @@ hr {
   line-height: 75px;
   font-size: 20px;
 }
+.hour{
+  font-size: 15px;
+  text-align: justify;
+  line-height: 75px;
+  position: relative;
+}
 .left{
   margin-left: 15px;
+}
+.flash{
+  background-color: blue;
+  text-decoration-color: black;
 }
 /***********************************/
 /* Media Queries

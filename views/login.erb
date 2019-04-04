@@ -1,0 +1,13 @@
+<h1 align="center">Login to Chitter</h1>
+<div class="container">
+  <p><%= flash[:login] %></p>
+  <form class="" action="/login/new" method="post">
+    <label for="user">Username or email: </label>
+    <input type="text" name="user" placeholder="email or username">
+    <br>
+    <label for="password">Password: </label>
+    <input type="password" name="password">
+    <br>
+    <input type="submit" value="Sign in" style="margin-left: 40px;">
+  </form>
+</div>

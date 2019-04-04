@@ -1,0 +1,21 @@
+<div class="" align="center">
+  <h1>Register to Chitter</h1>
+</div>
+<div class="container">
+  <p class="flash"><%= flash[:user] %></p>
+  <form class="" action="/register/new" method="post" align="center">
+    <label for="username">Username: </label>
+    <input type="text" name="username" placeholder="username">
+    <br>
+    <label for="email">Email</label>
+    <input type="text" name="email" placeholder="example@mail.com">
+    <br>
+    <label for="password">Password: </label>
+    <input type="password" name="password">
+    <br>
+    <label for="re-password">Repite your password: </label>
+    <input type="password" name="re-password">
+    <br>
+    <input type="submit" value="Register" style="margin-left: 40px;">
+  </form>
+</div>
