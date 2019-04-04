@@ -423,10 +423,16 @@ hr {
 }
 .left{
   margin-left: 15px;
+  margin-top: -20px;
 }
 .flash{
   background-color: blue;
   text-decoration-color: black;
+}
+.user {
+  border-bottom: 1px solid black;
+  margin-bottom: -25px;
+  line-height: 40px;
 }
 /***********************************/
 /* Media Queries

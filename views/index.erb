@@ -1,5 +1,5 @@
-<h4 class="u-pull-left"><%= @user %></h4>
-<% if not @sess%>
+<h4 class="u-pull-left"><%= @user%></h4>
+<% if !@sess%>
 <form action="/login" method="get">
   <input class="button button-primary u-pull-right" style="margin-left: 5px;" type="submit" value="Login">
 </form>
@@ -18,7 +18,8 @@
           <form action="/peep" method="post">
             <% if @sess %>
               <div class="">
-                <textarea class="u-full-width" name="content" rows="12" cols="50" placeholder="What are you doing?!!"></textarea>
+                <%= flash[:notice]%>
+                <textarea class="u-full-width" name="content" rows="12" cols="50" placeholder="What are you doing?!!" maxlength="255"></textarea>
               </div>
               <input class="button-primary u-pull-right" type="submit" value="Peep">
             <% else %>
@@ -35,11 +36,12 @@
             <div class="row">
               <div class="eleven columns">
                 <div class="peep">
+                  <p class="user"><%= peep.user%> at <%= peep.email%></p>
+                  <div class="u-pull-right">
+                    <%= peep.date%>
+                  </div>
                   <p class="left"><%= peep.content %></p>
                 </div>
-              </div>
-              <div class=" hour">
-                <p class="left"><%= peep.date%></p>
               </div>
             </div>
           <% end %>

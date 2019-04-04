@@ -3,6 +3,7 @@ require 'sinatra/flash'
 require 'sinatra'
 require File.join(File.dirname(__FILE__), 'environment')
 require_relative './lib/peep'
+require_relative './lib/peep_user'
 require_relative './lib/users'
 require_relative './lib/dbconnect'
 require_relative './lib/enviroment_helper'
@@ -21,16 +22,20 @@ class Chitter < Sinatra::Base
   register Sinatra::Flash
   # index page
   get '/' do
-    @peeps = Peep.show
-    @sess = session[:user_id]
+    @peeps = PeepUser.show
+    @sess = User.find(id: session[:user_id])
     @user = session[:username]
     erb :index
   end
 
   post '/peep' do
-    user = session["user_id"]
-    Peep.create(content: params["content"])
-    redirect('/')
+    unless params["content"] != ""
+      flash[:notice] = "Tell us what your thinking put a peep!"
+    else
+      Peep.create(content: params["content"], user: session[:user_id])
+      redirect('/')
+    end
+
   end
 
   get '/register' do
@@ -38,14 +43,12 @@ class Chitter < Sinatra::Base
   end
 
   post '/register/new' do
-    username = params['username']
-    email = params['email']
-    check = User.check(username, email)
-    if check
+    res = DbConnect.query("SELECT * FROM users WHERE username = '#{params["username"]}' OR email = '#{params["email"]}';")
+    unless res
       flash[:user] = 'Username or email already exist!'
     else
       if params["password"] == params["re-password"]
-        user = User.create(name: username, emai: email, pass: params['password'])
+        user = User.create(name: params["username"], email: params["email"], pass: params['password'])
         session[:user_id] = user.id
         session[:username] = user.name
         redirect('/')

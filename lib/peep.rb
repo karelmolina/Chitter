@@ -14,7 +14,7 @@ class Peep
   end
 
   def self.create(content:, user:)
-    res = DbConnect.query("INSERT INTO peeps (content,users) VALUES ('#{content}') RETURNING id, content, datetime, users;")
+    res = DbConnect.query("INSERT INTO peeps (content,users) VALUES ('#{content}','#{user}') RETURNING id, content, datetime, users;")
     Peep.new(id: res[0]["id"],
             content: res[0]["content"],
             date: res[0]["datetime"],
