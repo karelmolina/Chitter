@@ -5,6 +5,14 @@
 
 * Please read over the `environment.rb` file and complete Application Name and Author Name sections with the appropriate information. This file houses all our dependencies.
 
+* create your ```.env``` file with two variables DATABASE and TEST_DATABASE with the name of the databases you create.
+
+* setup the databases with the files in db_migration.
+
+## Execute
+
+* you can run with ```rackup``` or ```ruby Chitter.rb```
+
 ## User Stories
 
 ```
