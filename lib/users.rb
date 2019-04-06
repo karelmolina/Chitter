@@ -27,6 +27,29 @@ class User
             name: res[0]['username'],
             email: res[0]['email'])
   end
+  # needed improvemnt
+  # the email validates via html form
+  def self.is_email?(email)
+    mail =~ /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i
+  end
+
+  def self.mention(content:)
+    res = DbConnect.query("SELECT username from users;")
+    res.map do |user|
+      usern = "@" + user["username"]
+      check = /#{usern}/.match(content)
+      if check != nil
+        return user["username"]
+      end
+    end
+  end
+
+  def self.email(username:)
+    res = DbConnect.query("SELECT email FROM users WHERE username = '#{username}';")
+    res.map do |user|
+      return user['email']
+    end
+  end
 
   attr_reader :id, :name, :email
 
@@ -35,4 +58,5 @@ class User
     @name = name
     @email = email
   end
+
 end

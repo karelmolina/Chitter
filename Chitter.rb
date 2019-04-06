@@ -1,6 +1,7 @@
 require 'bundler/setup'
 require 'sinatra/flash'
 require 'sinatra'
+require 'pony'
 require File.join(File.dirname(__FILE__), 'environment')
 require_relative './lib/peep'
 require_relative './lib/peep_user'
@@ -32,6 +33,14 @@ class Chitter < Sinatra::Base
     unless params["content"] != ""
       flash[:notice] = "Tell us what your thinking put a peep!"
     else
+      @mention = User.mention(content: params["content"])
+      if @mention != ""
+        @user = session[:username]
+        email = User.email(username: @mention)
+        Pony.mail (:to => email, :from => 'no-reply@chitter',
+                  :subject => 'Mention in chitter',
+                  :body => erb(:email))
+      end
       Peep.create(content: params["content"], user: session[:user_id])
       redirect('/')
     end

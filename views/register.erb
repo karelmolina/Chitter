@@ -3,18 +3,18 @@
 </div>
 <div class="container">
   <p class="flash"><%= flash[:user] %></p>
-  <form class="" action="/register/new" method="post" align="center">
+  <form class="" action="/register/new" method="post" align="center" >
     <label for="username">Username: </label>
-    <input type="text" name="username" placeholder="username">
+    <input type="text" name="username" placeholder="username" required>
     <br>
     <label for="email">Email</label>
-    <input type="text" name="email" placeholder="example@mail.com">
+    <input type="email" oninvalid="Incorrect!" name="email" placeholder="example@mail.com" required>
     <br>
     <label for="password">Password: </label>
-    <input type="password" name="password">
+    <input type="password" name="password" required>
     <br>
     <label for="re-password">Repite your password: </label>
-    <input type="password" name="re-password">
+    <input type="password" name="re-password" required>
     <br>
     <input type="submit" value="Register" style="margin-left: 40px;">
   </form>

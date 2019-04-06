@@ -1,17 +1,19 @@
-<h4 class="u-pull-left"><%= @user%></h4>
+<% if @user%>
+  <h4 class="u-pull-left">@<%= @user%></h4>
+<% end %>
 <% if !@sess%>
-<form action="/login" method="get">
-  <input class="button button-primary u-pull-right" style="margin-left: 5px;" type="submit" value="Login">
-</form>
-<form action="/register" method="get">
-  <input class="button button-primary u-pull-right" type="submit" value="Register">
-</form>
-<% else %>
-<div class="two column" style="margin-left: 0px;">
-  <form class="" action="/session/destroy" method="post">
-    <input type="submit" class="u-pull-left" value="Log Out">
+  <form action="/login" method="get">
+    <input class="button button-primary u-pull-right" style="margin-left: 5px;" type="submit" value="Login">
   </form>
-</div>
+  <form action="/register" method="get">
+    <input class="button button-primary u-pull-right" type="submit" value="Register">
+  </form>
+<% else %>
+  <div class="two column" style="margin-left: 0px;">
+    <form class="" action="/session/destroy" method="post">
+      <input type="submit" class="u-pull-left" value="Log Out">
+    </form>
+  </div>
 <% end %>
 <div class="">
   <h1 align="center">Welcome To Chitter!</h1>
@@ -47,7 +49,9 @@
             <div class="row">
               <div class="eleven columns">
                 <div class="peep">
-                  <p class="user"><%= peep.user%> at <%= peep.email%></p>
+                  <p class="user">@<%= peep.user%>
+                    at
+                    <%= peep.email%></p>
                   <div class="u-pull-right">
                     <%= peep.date%>
                   </div>
