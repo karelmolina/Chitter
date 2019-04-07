@@ -33,18 +33,19 @@ class Chitter < Sinatra::Base
     unless params["content"] != ""
       flash[:notice] = "Tell us what your thinking put a peep!"
     else
-      @metion = 'example@example.com'
       @mention = User.mention(content: params["content"])
-      if @mention != 'example@example.com'
+      if @mention == ""
+        @metion = 'example@example.com'
+      elsif @mention != 'example@example.com'
         @user = session[:username]
-        email =  @mention
-        Pony.mail :to => email,
+        Pony.mail :to => @mention,
                   :from => 'no-reply@chitter',
                   :subject => 'Mention in chitter',
                   :body => erb(:email)
+      else
+        Peep.create(content: params["content"], user: session[:user_id])
+        redirect('/')
       end
-      Peep.create(content: params["content"], user: session[:user_id])
-      redirect('/')
     end
 
   end
