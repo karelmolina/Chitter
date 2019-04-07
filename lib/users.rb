@@ -37,17 +37,11 @@ class User
     res = DbConnect.query("SELECT username from users;")
     res.map do |user|
       usern = "@" + user["username"]
-      check = /#{usern}/.match(content)
-      if check != nil
-        return user["username"]
+      check = content.include?usern
+      if check
+        toemail = email(user["username"])
+        return toemail
       end
-    end
-  end
-
-  def self.email(username:)
-    res = DbConnect.query("SELECT email FROM users WHERE username = '#{username}';")
-    res.map do |user|
-      return user['email']
     end
   end
 
@@ -57,6 +51,15 @@ class User
     @id = id
     @name = name
     @email = email
+  end
+
+  private
+
+  def self.email(username)
+    res = DbConnect.query("SELECT email FROM users WHERE username = '#{username}';")
+    res.map do |user|
+      return user['email']
+    end
   end
 
 end
