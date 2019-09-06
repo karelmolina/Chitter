@@ -1,5 +1,6 @@
 require_relative './dbconnect'
 require 'bcrypt'
+require 'pry'
 
 class User
 
@@ -35,14 +36,16 @@ class User
 
   def self.mention(content:)
     res = DbConnect.query("SELECT username from users;")
-    res.map do |user|
+    toemail = nil
+    res.each do |user|
       usern = "@" + user["username"]
       check = content.include?usern
       if check
         toemail = email(user["username"])
-        return toemail
       end
     end
+
+    toemail
   end
 
   attr_reader :id, :name, :email

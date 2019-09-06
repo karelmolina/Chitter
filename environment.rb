@@ -11,7 +11,7 @@ configure do
   SiteConfig = OpenStruct.new(
     title: 'Chitter',
     author: 'Chitter KarelMolina',
-    url_base: 'http://localhost:4567/'
+    url_base: 'http://localhost:9292/'
   )
 
   $LOAD_PATH.unshift("#{File.dirname(__FILE__)}/lib")
